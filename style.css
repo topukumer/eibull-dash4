@@ -1,0 +1,209 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #090629;
+}
+
+.container {
+    display: flex;
+}
+
+/* Sidebar styles */
+#sidebar {
+    width: 200px; 
+    height: 100vh;
+    background-color: #090629; 
+    display: flex;
+    flex-direction: column;
+    padding: 15px; 
+    position: fixed;
+
+}
+
+.head {
+    height: 30px; 
+    color: #fff; 
+    text-align: center;
+    margin-bottom: 10px; 
+    font-size: 24px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+/* Navigation styles */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 5px 0; 
+}
+
+nav ul a {
+    display: flex; 
+    align-items: center; 
+    padding: 10px; 
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.3s;
+}
+
+nav ul a:hover {
+    background-color: #120b55; 
+}
+
+/* Main styles */
+.dashboard {
+    margin-left: 220px; /* Adjust margin for fixed sidebar */
+    padding: 20px;
+    flex: 1; 
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0; /* Keep it at the top for fixed positioning */
+    width: 75%; /* Ensure it spans the entire viewport */
+    background-color: #090629;
+    padding: 0 20px; /* Add some padding for better visuals */
+    height: 50px;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.n-200 {
+    display: flex;
+    gap: 10px; 
+}
+
+.btn1 {
+    padding: 7px;
+}
+
+.btn1 button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #120b55; 
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn1 button:hover {
+    background-color: #fff; 
+    color: #090629;
+    transition: 0.5s;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    #sidebar {
+        display: none; 
+    }
+    
+    .dashboard {
+        margin-left: 0; 
+        padding: 10px; 
+    }
+}
+
+.m-10 {
+    display: flex;
+    gap: 15px; /* Space between boxes */
+    justify-content: center; /* Center the boxes */
+    flex-wrap: wrap; /* Allow wrapping */
+    margin: 20px;
+    margin-top: 50px; /* Margin around the container */
+}
+
+.mb-4 {
+    border: 1px solid #444; /* Border color */
+    text-align: center; /* Center text */
+    height: 130px; /* Fixed height */
+    width: 150px; /* Fixed width */
+    background-color: #090629; /* Background color */
+    border-radius: 8px; /* Rounded corners */
+    color: #120b55; /* Text color */
+    padding: 10px; /* Padding inside the box */
+    display: flex; /* Use flex for internal content */
+    align-items: center; /* Center items */
+    flex-direction: column;
+}
+
+.mb-4:hover {
+    transition: height 0.5s, width 0.5s, box-shadow 0.5s; /* Ensure transition is applied to box-shadow */
+    box-shadow: 0 4px 15px rgb(54, 12, 245); /* Add offset, blur radius, and color */
+}
+
+h3{
+    color: #fff;
+}
+
+.mb-4 h3,
+.mb-4 .title {
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+.title{
+    color: #fff;
+    padding: 5px 0 5px 0;
+}
+
+.px-4{
+    background-color: #1b145f;
+    border-radius: 9px;
+    border: none;
+    padding: 5px;
+    color: #fff;
+}
+
+.px-4:hover{
+    background-color: #fff;
+    color: #090629;
+    transition: 0.5s;
+}
+@media (max-width: 768px) {
+    .mb-4 {
+        width: 100%; /* Make boxes full-width on small screens */
+        margin-bottom: 10px; /* Add spacing between rows */
+    }
+}
+
+/* Graph */
+
+.n-100 {
+    display: flex;
+    flex-wrap: wrap;  /* Allow items to wrap to the next line */
+    justify-content: space-between;
+}
+
+.part {
+    flex: 1 1 30%;  /* Make each box take 30% of the width */
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.chart {
+    height: 350px;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 1200px) {
+    .part {
+        flex: 1 1 45%;  /* Each box takes 45% of the width on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .part {
+        flex: 1 1 100%;  /* On very small screens, each part takes 100% width */
+    }
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>EIBULL Dashboard4</title>
+</head>
+
+<body>
+    <div class="container">
+        <aside id="sidebar">
+            <div class="head">
+                <h1>EIBULL</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a id="sidebar-dashboard" href="/eibull?page=dashboard">🏠 Dashboard</a></li>
+                    <li><a id="sidebar-dwa" href="/eibull?page=dwa">📊 DWA Analysis</a></li>
+                    <li><a id="sidebar-scanner" href="/eibull?page=scanner">🔍 Scanner</a></li>
+                    <li><a id="sidebar-threats" href="/eibull?page=threats">🐞 Threats</a></li>
+                    <li><a id="sidebar-upload" href="/eibull?page=upload">📤 Upload Files</a></li>
+                    <li><a id="sidebar-account" href="/eibull?page=account">👤 My Account</a></li>
+                    <li><a id="sidebar-settings" href="/eibull?page=settings">⚙️ Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="dashboard">
+            <div class="header">
+                <div>
+                    <h2>Welcome to EIBULL</h2>
+                </div>
+                <div class="n-200 d-flex gap-2">
+                    <div class="btn1">
+                        <button>Upload</button>
+                    </div>
+                    <div class="btn1">
+                        <button>Account</button>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="m-10">
+                <div class="mb-4">
+                    <h3>543</h3>
+                    <i class="icon">🐞</i>
+                    <div class="title">Threats Found</div>
+                    <div>
+                        <button class="px-4">Read More</button>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <h3>11.5M</h3>
+                    <i class="icon">🐞</i>
+                    <div class="title">Data Breach</div>
+                    <div>
+                        <button class="px-4">Read More</button>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <h3>400</h3>
+                    <i class="icon">🐞</i>
+                    <div class="title">Malware</div>
+                    <div>
+                        <button class="px-4">Read More</button>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <h3>35</h3>
+                    <i class="icon">🐞</i>
+                    <div class="title">Ransomware</div>
+                    <div>
+                        <button class="px-4">Read More</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grph">
+                <h4>Graph</h4>
+                <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+                <div class="n-100">
+                    <div class="part">
+                        <h3>Recent Actions</h3>
+                        <div id="piechart" class="chart"></div>
+                    </div>
+                    <div class="part">
+                        <h3>Recent Events</h3>
+                        <div id="donutchart" class="chart"></div>
+                    </div>
+                </div>
+                <div class="n-100">
+                    <div class="part">
+                        <h3>Recommend Identifier</h3>
+                        <div id="barchart" class="chart"></div>
+                    </div>
+                    <div class="part">
+                        <h3>Recent High Risk Employee Leaked Credentials</h3>
+                        <div id="barchart2" class="chart"></div>
+                    </div>
+                </div>
+                <div class="n-100">
+                    <div class="part">
+                        <h3>Recent High Risk Corporate Infected Devices</h3>
+                        <div id="infectedDeviceChart" class="chart"></div>
+                    </div>
+                    <div class="part">
+                        <h3>Recent High Risk Look Alike Domains</h3>
+                        <div id="lookAlikeDomainsChart" class="chart"></div>
+                    </div>
+                </div>
+                <script>
+                    // Recent Actions Pie Chart
+                    var pieOptions = {
+                        chart: {
+                            type: 'pie',
+                            height: 350
+                        },
+                        series: [1205, 123, 312, 870],
+                        labels: ['Market Listing', 'Forum Posts', 'Profiles', 'Pastes'],
+                        title: {
+                            text: 'Here is the chart of Recent Actions..'
+                        }
+                    };
+                    var pieChart = new ApexCharts(document.querySelector("#piechart"), pieOptions);
+                    pieChart.render();
+
+                    // Recent Events Donut Chart
+                    var donutOptions = {
+                        chart: {
+                            type: 'donut',
+                            height: 350
+                        },
+                        series: [11, 2, 2, 2, 7],
+                        labels: ['Work', 'Eat', 'Commute', 'Watch TV', 'Sleep'],
+                        title: {
+                            text: 'Here is the chart of Recent Events..'
+                        },
+                        plotOptions: {
+                            pie: {
+                                donut: {
+                                    size: '40%'
+                                }
+                            }
+                        }
+                    };
+                    var donutChart = new ApexCharts(document.querySelector("#donutchart"), donutOptions);
+                    donutChart.render();
+
+                    // Recommend Identifier Bar Chart
+                    var barOptions = {
+                        chart: {
+                            type: 'bar',
+                            height: 350,
+                            stacked: false,
+                            horizontal: true,
+                        },
+                        series: [{
+                            name: 'Metric 1',
+                            data: [10]
+                        }, {
+                            name: 'Metric 2',
+                            data: [24]
+                        }, {
+                            name: 'Metric 3',
+                            data: [20]
+                        }, {
+                            name: 'Metric 4',
+                            data: [32]
+                        }],
+                        xaxis: {
+                            categories: ['Identifier'],
+                            title: {
+                                text: 'Metrics'
+                            },
+                        },
+                        yaxis: {
+                            title: {
+                                text: 'Identifiers'
+                            }
+                        },
+                        colors: ['#4285F4', '#DB4437', '#F4B400', '#0F9D58'],
+                        plotOptions: {
+                            bar: {
+                                horizontal: true,
+                                columnWidth: '50%'
+                            }
+                        }
+                    };
+                    var barChart = new ApexCharts(document.querySelector("#barchart"), barOptions);
+                    barChart.render();
+
+                    // High Risk Employee Leaked Credentials Bar Chart
+                    var options = {
+                        chart: {
+                            type: 'bar',
+                            height: 350,
+                            stacked: false,
+                        },
+                        series: [{
+                            name: 'Value',
+                            data: [10, 24, 20, 32]
+                        }],
+                        xaxis: {
+                            categories: ['Metric 1', 'Metric 2', 'Metric 3', 'Metric 4'], // Metric labels
+                            title: {
+                                text: 'Metrics'
+                            }
+                        },
+                        yaxis: {
+                            title: {
+                                text: 'Value'
+                            },
+                            min: 0 // Set minimum value for the y-axis
+                        },
+                        title: {
+                            text: 'Recommended Identifiers - 4 Columns'
+                        },
+                        colors: ['#4285F4', '#DB4437', '#F4B400', '#0F9D58'], // Colors for each column
+                        plotOptions: {
+                            bar: {
+                                horizontal: false, // Set to vertical bars
+                                columnWidth: '50%' // Adjust column width
+                            }
+                        },
+                        chartArea: {
+                            width: '50%' // Chart area width
+                        }
+                    };
+                    var chart = new ApexCharts(document.querySelector("#barchart2"), options);
+                    chart.render();
+
+                    // High Risk Corporate Infected Devices Chart
+                    var options = {
+                        chart: {
+                            type: 'bar',
+                            height: 350,
+                            stacked: false,
+                        },
+                        series: [{
+                            name: 'Infection Count',
+                            data: [30, 40, 50, 60, 20]  // Infection counts for each device
+                        }],
+                        xaxis: {
+                            categories: ['Device A', 'Device B', 'Device C', 'Device D', 'Device E'], // Device names
+                            title: {
+                                text: 'Devices'
+                            }
+                        },
+                        yaxis: {
+                            title: {
+                                text: 'Infection Count'
+                            },
+                            min: 0 // Ensure y-axis starts at 0
+                        },
+                        title: {
+                            text: 'Recent High Risk Infected Devices'
+                        },
+                        colors: ['#4285F4', '#DB4437', '#F4B400', '#0F9D58', '#AB47BC'],  // Colors for each bar
+                        plotOptions: {
+                            bar: {
+                                horizontal: false, // Vertical bars
+                                columnWidth: '50%' // Adjust the column width
+                            }
+                        },
+                        chartArea: {
+                            width: '50%' // Similar to Google Charts' chartArea width
+                        }
+                    };
+                    var chart = new ApexCharts(document.querySelector("#infectedDeviceChart"), options);
+                    chart.render();
+
+                    // High Risk Look Alike Domains Chart
+                    var options = {
+                        chart: {
+                            type: 'bar',
+                            height: 350,
+                            stacked: false,
+                        },
+                        series: [{
+                            name: 'Risk Level',
+                            data: [10, 25, 20, 30, 15]  // Risk levels for each domain
+                        }],
+                        xaxis: {
+                            categories: ['example1.com', 'example2.net', 'example3.org', 'example4.biz', 'example5.co'],  // Domain names
+                            title: {
+                                text: 'Domains'
+                            },
+                            min: 0  // Ensure the x-axis starts from 0
+                        },
+                        yaxis: {
+                            title: {
+                                text: 'Risk Level'
+                            },
+                            min: 0  // Ensure y-axis starts from 0
+                        },
+                        title: {
+                            text: 'Recent High Risk Look Alike Domains'
+                        },
+                        colors: ['#FF5722', '#03A9F4', '#8BC34A', '#FFC107', '#9C27B0'],  // Colors for each bar
+                        plotOptions: {
+                            bar: {
+                                horizontal: false,  // Vertical bars
+                                columnWidth: '50%'  // Adjust column width
+                            }
+                        },
+                        chartArea: {
+                            width: '60%'  // Set chart area width
+                        }
+                    };
+                    var chart = new ApexCharts(document.querySelector("#lookAlikeDomainsChart"), options);
+                    chart.render();
+                </script>
+
+
+            </div>
+
+            <div>
+                <h4>More Information</h4>
+                <div>
+                    <p>
+                        Welcome to EIBull, your comprehensive tool for monitoring and analyzing the Dark Web.
+                        Our platform provides real-time insights into potential threats and illicit activities
+                        that may impact your online security. With advanced algorithms and a user-friendly interface,
+                        EIBull empowers you to stay one step ahead of cybercriminals. Explore our detailed reports,
+                        visualize data trends, and receive actionable alerts tailored to your specific needs.
+                        Your safety is our priority, and with EIBull, you can navigate the complexities of the Dark Web
+                        with confidence.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>
